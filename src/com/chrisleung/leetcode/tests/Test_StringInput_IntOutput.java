@@ -1,6 +1,6 @@
 /**
- * Tests a method with int[] array input and int[] array output.
- * Loads the test data from a file.
+ * Tests a method with String input and Integer/int output.
+ * Loads the test data from a file that uses strings "\n" and "\t" as newline and tab markers, replaced below by their respective chars. 
  * 
  * Please see NOTE comments and update respective code as needed. 
  */
