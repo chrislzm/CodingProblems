@@ -21,21 +21,24 @@ import org.junit.runners.Parameterized.Parameters;
 import com.chrisleung.leetcode.solutions.*;
 
 @RunWith(Parameterized.class)
-public class IntArrayInput_IntArrayOutput {
+public class Test_IntArrayInput_IntArrayOutput {
 	
 	/* NOTE: Modify path and filename here as needed */
 	static private final String TEST_DATA_RELATIVE_PATH = "data/Problem_066_Plus_One.txt";
 	
     static private int testCaseNum = 0;
     private static Scanner in = null;
+    
+    /* NOTE: Modify these fields as needed */
     private int[] fInput;
     private int[] fExpected;
     
     @Parameters(name = "Test Case #{index}")
     public static Collection<Object[]> data() {
-    	in = new Scanner(IntArrayInput_IntArrayOutput.class.getResourceAsStream(TEST_DATA_RELATIVE_PATH));
+    	in = new Scanner(Test_IntArrayInput_IntArrayOutput.class.getResourceAsStream(TEST_DATA_RELATIVE_PATH));
     	ArrayList<Object[]> testCases = new ArrayList<>();
     	while(in.hasNext()) {
+    		/* NOTE: Modify file input format as needed */
 			// Read test case and solution
 			String inputString = in.next();
 			String expectedString = in.next();
@@ -57,7 +60,8 @@ public class IntArrayInput_IntArrayOutput {
     	return testCases;
     }
 
-    public IntArrayInput_IntArrayOutput(int[] input, int[] expected) {
+    /* NOTE: Modify the constructor and field assignment as needed */
+    public Test_IntArrayInput_IntArrayOutput(int[] input, int[] expected) {
     	fInput = input;
     	fExpected = expected;
     }
