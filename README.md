@@ -1,3 +1,7 @@
+# Introduction
+
+This is an Eclipse Java project workspace for Leetcode.com problems. It includes reusable JUnit Test harnesses along with my sample solutions and test cases.
+
 # Usage Notes
 
 This project workspace was created on MacOS using Eclipse IDE for Java Developers, Neon.3 Release (4.6.3), Java SE 1.8 and JUnit 4.
