@@ -1,3 +1,9 @@
+/**
+ * Tests a method with int[] array input and int[] array output.
+ * Loads the test data from a file.
+ * 
+ * Please see NOTE comments and update respective code as needed. 
+ */
 package com.chrisleung.leetcode.tests;
 
 import static org.junit.Assert.*;
@@ -12,12 +18,14 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import com.chrisleung.leetcode.solutions.Problem_066_Plus_One;
+import com.chrisleung.leetcode.solutions.*;
 
 @RunWith(Parameterized.class)
 public class IntArrayInput_IntArrayOutput {
 	
-	static private final String TEST_DATA_PATH = "data/Problem_066_Plus_One.txt";
+	/* NOTE: Modify path and filename here as needed */
+	static private final String TEST_DATA_RELATIVE_PATH = "data/Problem_066_Plus_One.txt";
+	
     static private int testCaseNum = 0;
     private static Scanner in = null;
     private int[] fInput;
@@ -25,7 +33,7 @@ public class IntArrayInput_IntArrayOutput {
     
     @Parameters(name = "Test Case #{index}")
     public static Collection<Object[]> data() {
-    	in = new Scanner(IntArrayInput_IntArrayOutput.class.getResourceAsStream(TEST_DATA_PATH));
+    	in = new Scanner(IntArrayInput_IntArrayOutput.class.getResourceAsStream(TEST_DATA_RELATIVE_PATH));
     	ArrayList<Object[]> testCases = new ArrayList<>();
     	while(in.hasNext()) {
 			// Read test case and solution
@@ -56,7 +64,7 @@ public class IntArrayInput_IntArrayOutput {
     
 	@Test
 	public void test() {
-		/* IMPORTANT: Modify the two following lines accordingly */
+		/* NOTE: Modify the two following lines as needed */
 		Problem_066_Plus_One solution = new Problem_066_Plus_One();
 		int[] result  = solution.plusOne(fInput);
 		
