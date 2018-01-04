@@ -62,7 +62,7 @@ public class Test_StringInput_IntOutput {
 	@Test
 	public void test() {
 		/* NOTE: Modify the two following lines as needed */
-		Problem_388_Longest_Absolute_File_Path solution = new Problem_388_Longest_Absolute_File_Path();
+		Problem_388_Longest_Absolute_File_Path_v2 solution = new Problem_388_Longest_Absolute_File_Path_v2();
 		Integer result  = solution.lengthLongestPath(fInput);
 		
 		boolean passed = fExpected.equals(result);
