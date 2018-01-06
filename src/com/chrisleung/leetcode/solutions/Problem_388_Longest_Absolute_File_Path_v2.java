@@ -8,8 +8,8 @@ public class Problem_388_Longest_Absolute_File_Path_v2 {
         int[] pathLength = new int[entries.length];
         for(String e : entries) {
         	int level = e.lastIndexOf('\t') + 1;
-        	int length = pathLength[level+1] = pathLength[level] + e.length() - level;
-        	pathLength[level+1] = pathLength[level] + e.length() - level + 1;
+        	int length = pathLength[level] + e.length() - level;
+        	pathLength[level+1] = length + 1; // Add 1 for the '/' directory slash
         	if(e.contains(".")) {
         		longest = Math.max(length, longest);
         	}
