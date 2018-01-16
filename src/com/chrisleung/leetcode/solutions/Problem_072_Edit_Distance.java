@@ -17,10 +17,10 @@ public class Problem_072_Edit_Distance {
         String memoKey = word1 + " " + word2;
         if(map.containsKey(memoKey)) return map.get(memoKey);
         
-        int min = word2.length() + Math.abs(word1.length()-word2.length());
-
         String nextWord1 = word1.substring(1);
         String nextWord2 = word2.substring(1);
+
+        int min = Math.max(word1.length(),word2.length());
 
         if(word1.charAt(0) == word2.charAt(0)) {
             // Get min distance if we skip same characters
