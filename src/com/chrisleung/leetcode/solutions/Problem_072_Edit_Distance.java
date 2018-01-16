@@ -1,3 +1,7 @@
+/*
+ * Note: This solution uses memoization. For this problem, tabulation is faster. See v2 solution. 
+ */
+
 package com.chrisleung.leetcode.solutions;
 
 import java.util.HashMap;
