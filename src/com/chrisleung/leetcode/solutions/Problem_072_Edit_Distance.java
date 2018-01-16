@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Problem_072_Edit_Distance {
 	
-	Map<String,Integer> map = new HashMap<>();
+	Map<String,Integer> memo = new HashMap<>();
 	
     public int minDistance(String word1, String word2) {
         if(word1 == null || word1.isEmpty()) return word2 == null ? 0 : word2.length();
@@ -19,7 +19,7 @@ public class Problem_072_Edit_Distance {
         	return Math.abs(word1.length()-word2.length());
 
         String memoKey = word1 + " " + word2;
-        if(map.containsKey(memoKey)) return map.get(memoKey);
+        if(memo.containsKey(memoKey)) return memo.get(memoKey);
         
         String nextWord1 = word1.substring(1);
         String nextWord2 = word2.substring(1);
@@ -37,7 +37,7 @@ public class Problem_072_Edit_Distance {
         min = Math.min(min, minDistance(nextWord1,word2)+1);
         // Try inserting the character
         min = Math.min(min, minDistance(word1,nextWord2)+1);
-        map.put(memoKey,min);
+        memo.put(memoKey,min);
         return min;
     }
 }
