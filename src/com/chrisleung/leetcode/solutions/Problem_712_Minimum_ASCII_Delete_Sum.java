@@ -10,24 +10,24 @@
 package com.chrisleung.leetcode.solutions;
 
 public class Problem_712_Minimum_ASCII_Delete_Sum {
-	public int minimumDeleteSum(String s1, String s2) {
-		int[][] cost = new int[s1.length()+1][s2.length()+1];
-		for(int i=0; i<s1.length(); i++) {
-			cost[i+1][0] = s1.charAt(i) + cost[i][0];
-		}
-		for(int j=0; j<s2.length(); j++) {
-			cost[0][j+1] = s2.charAt(j) + cost[0][j];
-		}
-		for(int i=1; i <= s1.length(); i++) {
-			for(int j=1; j <= s2.length(); j++) {
-				if(s1.charAt(i-1) == s2.charAt(j-1)) {
-					cost[i][j] = cost[i-1][j-1];
-				} else {
-					// Choose min cost of deleting a char from s1 vs s2
-					cost[i][j] = Math.min(cost[i-1][j] + s1.charAt(i-1), cost[i][j-1] + s2.charAt(j-1));
-				}
-			}
-		}
-		return cost[s1.length()][s2.length()];
-	}
+    public int minimumDeleteSum(String s1, String s2) {
+        int[][] cost = new int[s1.length()+1][s2.length()+1];
+        for(int i=0; i<s1.length(); i++) {
+            cost[i+1][0] = s1.charAt(i) + cost[i][0];
+        }
+        for(int j=0; j<s2.length(); j++) {
+            cost[0][j+1] = s2.charAt(j) + cost[0][j];
+        }
+        for(int i=1; i <= s1.length(); i++) {
+            for(int j=1; j <= s2.length(); j++) {
+                if(s1.charAt(i-1) == s2.charAt(j-1)) {
+                    cost[i][j] = cost[i-1][j-1];
+                } else {
+                    // Choose min cost of deleting a char from s1 vs s2
+                    cost[i][j] = Math.min(cost[i-1][j] + s1.charAt(i-1), cost[i][j-1] + s2.charAt(j-1));
+                }
+            }
+        }
+        return cost[s1.length()][s2.length()];
+    }
 }
