@@ -18,9 +18,12 @@ public class Problem_072_Edit_Distance_v3 {
     			cost[0] = j;
     			iMinus1_jMinus1 = j-1;
     			for(int i=1; i<=shorter.length(); i++) {
-    				int tmp_iMinus1_jMinus1 = cost[i]; // Save before it gets overwritten
-    				if(shorter.charAt(i-1) == longer.charAt(j-1)) cost[i]=iMinus1_jMinus1; // Skip
-    				else cost[i] = Math.min(iMinus1_jMinus1+1, Math.min(cost[i-1]+1, cost[i]+1)); // Replace, delete, insert
+    				// Save before it gets overwritten
+    				int tmp_iMinus1_jMinus1 = cost[i]; 
+    				 // Skip
+    				if(shorter.charAt(i-1) == longer.charAt(j-1)) cost[i]=iMinus1_jMinus1;
+    				 // Replace, delete, insert
+    				else cost[i] = Math.min(iMinus1_jMinus1+1, Math.min(cost[i-1]+1, cost[i]+1));
     				// Setup for next loop
     				iMinus1_jMinus1 = tmp_iMinus1_jMinus1;
     			}

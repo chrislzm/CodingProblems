@@ -14,8 +14,10 @@ public class Problem_072_Edit_Distance_v2 {
     		
     		for(int j=1; j<=word2.length(); j++) {
     			for(int i=1; i<=word1.length(); i++) {
-    				if(word1.charAt(i-1) == word2.charAt(j-1)) cost[i][j]=cost[i-1][j-1]; // Skip
-    				else cost[i][j] = Math.min(cost[i-1][j-1]+1, Math.min(cost[i-1][j]+1, cost[i][j-1]+1)); // Replace, delete, insert
+    				 // Skip
+    				if(word1.charAt(i-1) == word2.charAt(j-1)) cost[i][j]=cost[i-1][j-1];
+    				// Replace, delete, insert
+    				else cost[i][j] = Math.min(cost[i-1][j-1]+1, Math.min(cost[i-1][j]+1, cost[i][j-1]+1));
     			}
     		}
     		return cost[word1.length()][word2.length()];
