@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class Problem_770_Max_Chunks_To_Make_Sorted_II {
+public class Problem_768_Max_Chunks_To_Make_Sorted_II {
     class Interval {
         int start;
         int end;
