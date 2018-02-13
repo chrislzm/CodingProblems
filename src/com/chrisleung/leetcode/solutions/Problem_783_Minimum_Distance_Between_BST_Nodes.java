@@ -3,6 +3,10 @@ package com.chrisleung.leetcode.solutions;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Simply traverse the tree in order and convert to a list, then track the difference between adjacent elements.
+ * @author Chris Leung
+ */
 public class Problem_783_Minimum_Distance_Between_BST_Nodes {
     public class TreeNode {
          int val;
