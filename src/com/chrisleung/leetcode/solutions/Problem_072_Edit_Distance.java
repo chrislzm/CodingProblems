@@ -13,9 +13,8 @@ public class Problem_072_Edit_Distance {
 
     public int minDistance(String word1, String word2) {
         if(word1 == null || word1.isEmpty()) return word2 == null ? 0 : word2.length();
-        if(word2.isEmpty()) return word1.length();
-        if(word1.equals(word2)) return 0;
-        if(word1.length() < word2.length() ? word2.contains(word1) : word1.contains(word2))
+        if(word2 == null || word2.isEmpty()) return word1.length();
+        if(word1.contains(word2) || word2.contains(word1))
             return Math.abs(word1.length()-word2.length());
 
         String memoKey = word1 + " " + word2;
