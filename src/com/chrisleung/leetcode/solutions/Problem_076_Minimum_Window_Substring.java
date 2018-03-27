@@ -5,6 +5,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * This solution only works for "t" without duplicates 
+ * @author Chris Leung
+ */
 public class Problem_076_Minimum_Window_Substring {
     class Solution {
         class ListNode {
