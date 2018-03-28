@@ -6,7 +6,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * This solution only works for "t" without duplicates 
+ * This solution only works for "t" without duplicates.
+ * Please see v2 for the full working solution.
  * @author Chris Leung
  */
 public class Problem_076_Minimum_Window_Substring {
