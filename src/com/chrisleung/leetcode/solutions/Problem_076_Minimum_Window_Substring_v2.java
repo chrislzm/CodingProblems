@@ -7,22 +7,21 @@ public class Problem_076_Minimum_Window_Substring_v2 {
         
         char[] input = s.toCharArray();
 
-        // elementBalance[i]  =   Minimum frequency of element i that's required for a "valid" window
+        // elementBalance[i]  =    # of element i that's required for a "valid" window
         // elementBalance[i] < 0  We saw element i less times than required in the current window
         // elementBalance[i] == 0 We saw element i exactly as many times as required in the current window
         // elementBalance[i] > 0  We saw element i more times than required in the current window
-        // Important: The only way charBalance[i] == 0 is if it never occurs in string t or s OR
-        // we have found it exactly the required number of times. Otherwise it will always be negative.
+        // Note: We only care about elementBalance of required elements and ignore the balance of other elements that were found
         
         int[] elementBalance = new int[128];
          
         // Update balances of required elements
         for(char requiredElement : t.toCharArray()) {
-            elementBalance[requiredElement]--;
+            elementBalance[requiredElement]--; // Negative because we haven't found them yet
         }
                 
-        // # of required elements not found in the current window
-        int overallBalance = -t.length();
+        // Total # of required elements found in the current window
+        int overallBalance = -t.length(); // Negative because we haven't found them yet
         
         // Tracks the min window found so far
         int minWindowStartIndex = 0;
@@ -43,11 +42,11 @@ public class Problem_076_Minimum_Window_Substring_v2 {
                     minWindowLength = curWindowLength;
                     minWindowStartIndex = curWindowStartIndex;
                 }
-                // Shrink (minimize) this window size until we lose a required element
+                // Shrink (minimize) this window size by incrementing the start index
                 char elementToRemove = input[curWindowStartIndex];
                 curWindowStartIndex++;
-                if(elementBalance[elementToRemove] == 0) {
-                    overallBalance--; // We're losing the minimum required# of this element
+                if(elementBalance[elementToRemove] == 0) { // We're losing the minimum required# of this element
+                    overallBalance--;
                 }
                 elementBalance[elementToRemove]--;
             }
