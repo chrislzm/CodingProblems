@@ -1,7 +1,7 @@
 package com.chrisleung.leetcode.solutions;
 
 /**
- * Dynamic programming solution -- most significant bit
+ * Dynamic programming solution -- least significant bit
  * @author Chris Leung
  */
 public class Problem_338_Counting_Bits_DP_LSB {
