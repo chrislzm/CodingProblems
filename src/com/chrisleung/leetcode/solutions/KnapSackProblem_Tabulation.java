@@ -11,16 +11,18 @@ public class KnapSackProblem_Tabulation {
         int[][] table = new int[availableWeight+1][itemValues.length+1]; 
         for(int weight=0; weight<=availableWeight; weight++) {
             for(int item=0; item<=itemValues.length; item++) {
-                int maxValueNotInclude = 0;
-                int maxValueInclude = 0;
+                int maxValueNotIncludeItem = 0;
+                int maxValueIncludeItem = 0;
                 if(weight!=0 && item!=0) {
-                    maxValueNotInclude = table[weight][item-1];
-                    maxValueInclude = 0;
-                    if(weight >= itemWeights[item-1]) {
-                        maxValueInclude = itemValues[item-1] + table[weight-itemWeights[item-1]][item-1];
+                    int curItemWeight = itemWeights[item-1];
+                    int curItemValue = itemValues[item-1];
+                    int prevItem = item-1;
+                    maxValueNotIncludeItem = table[weight][prevItem];
+                    if(weight >= curItemWeight) {
+                        maxValueIncludeItem = curItemValue + table[weight-curItemValue][prevItem];
                     } 
                 }
-                table[weight][item] = Math.max(maxValueNotInclude, maxValueInclude);
+                table[weight][item] = Math.max(maxValueNotIncludeItem, maxValueIncludeItem);
             }
         }
         return table[availableWeight][itemValues.length];
