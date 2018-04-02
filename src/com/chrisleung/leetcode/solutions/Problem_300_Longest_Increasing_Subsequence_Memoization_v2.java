@@ -1,6 +1,6 @@
 package com.chrisleung.leetcode.solutions;
 
-public class Problem_300_Longest_Increase_Subsequence_Memoization_v2 {
+public class Problem_300_Longest_Increasing_Subsequence_Memoization_v2 {
 
     int lengthOfLIS(int[] nums) {
         int numElements = nums.length;
