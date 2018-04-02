@@ -1,5 +1,9 @@
 package com.chrisleung.leetcode.solutions;
 
+/**
+ * O(n) memory solution
+ * @author Chris Leung
+ */
 public class Problem_300_Longest_Increasing_Subsequence_Tabulation_v2 {
     int lengthOfLIS(int[] nums) {
         int numElements = nums.length;
