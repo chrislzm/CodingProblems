@@ -31,8 +31,8 @@ public class Problem_076_Minimum_Window_Substring_v2 {
         for(int curWindowEndIndex=0; curWindowEndIndex < input.length; curWindowEndIndex++) {
             char curElement = input[curWindowEndIndex];
             elementBalance[curElement]++; 
-            if(elementBalance[curElement] <= 0) {
-                overallBalance++; // We have found the minimum required quantity of this element
+            if(elementBalance[curElement] <= 0) {  // If we have found a required element
+                overallBalance++;
             }
             // While all required elements are in the current window
             while(overallBalance == 0) { 
