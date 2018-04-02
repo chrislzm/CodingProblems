@@ -30,10 +30,10 @@ public class Problem_076_Minimum_Window_Substring_v2 {
         int curWindowStartIndex = 0;
         for(int curWindowEndIndex=0; curWindowEndIndex < input.length; curWindowEndIndex++) {
             char curElement = input[curWindowEndIndex];
-            if(elementBalance[curElement] < 0) { // If this is a required element
-                overallBalance++; // We have found a required element
-            }
             elementBalance[curElement]++; 
+            if(elementBalance[curElement] <= 0) {
+                overallBalance++; // We have found the minimum required quantity of this element
+            }
             // While all required elements are in the current window
             while(overallBalance == 0) { 
                 // Updated minimum window found if needed
@@ -44,11 +44,11 @@ public class Problem_076_Minimum_Window_Substring_v2 {
                 }
                 // Shrink (minimize) this window size by incrementing the start index
                 char elementToRemove = input[curWindowStartIndex];
-                curWindowStartIndex++;
-                if(elementBalance[elementToRemove] == 0) { // We're losing the minimum required# of this element
+                elementBalance[elementToRemove]--;
+                if(elementBalance[elementToRemove] < 0) { // We've lost the minimum required# of this element
                     overallBalance--;
                 }
-                elementBalance[elementToRemove]--;
+                curWindowStartIndex++;
             }
         }
         return minWindowLength == Integer.MAX_VALUE ? "" : s.substring(minWindowStartIndex,minWindowStartIndex+minWindowLength);
