@@ -28,21 +28,4 @@ public class Problem_322_Coin_Change_Tabulation {
         }
         return table[coins.length][totalAmount];
     }
-    
-    private int minCoins(int[] denominations, int index, int amount, Integer[][] memo) {
-        if(amount == 0) return 0;
-        if(index < 0) return -1;
-        if(memo[index][amount] == null) {
-            int maxNumThisCoin = amount/denominations[index];
-            int min = -1;
-            for(int i=maxNumThisCoin; i>=0; i--) {
-                int result = minCoins(denominations,index-1,amount-(i*denominations[index]),memo);
-                if(result>=0) { 
-                    min = min >= 0 ? Math.min(min, i+result) : i+result;
-                }
-            }
-            memo[index][amount] = min;
-        }
-        return memo[index][amount];
-    }
 }
