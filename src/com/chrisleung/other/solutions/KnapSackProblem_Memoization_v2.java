@@ -1,4 +1,4 @@
-package com.chrisleung.leetcode.solutions;
+package com.chrisleung.other.solutions;
 
 public class KnapSackProblem_Memoization_v2 {
     

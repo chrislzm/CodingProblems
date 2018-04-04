@@ -1,4 +1,4 @@
-package com.chrisleung.leetcode.solutions;
+package com.chrisleung.other.solutions;
 
 /**
  * Problem from https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem
