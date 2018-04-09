@@ -40,10 +40,8 @@ public class FlowerBed {
         int maxFlowersCanPlant = 0;
         int firstZeroIndex = -1; // Index of the last zero we've found
         for(int i=0; i<flowerBed.length; i++) { // 0, 1, 2, 3, 4, 5
-            if(flowerBed[i] == 0) {
-                if(firstZeroIndex < 0) {
-                    firstZeroIndex = i; // 1
-                }
+            if(flowerBed[i] == 0 && firstZeroIndex < 0) {
+                firstZeroIndex = i; // 1
             } else { // We found a 1
                 // See how many zeros we have and increment number of flowers we can plant
                 if(firstZeroIndex == 0) { // Special case (leading zeros)
