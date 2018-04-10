@@ -25,7 +25,7 @@ import java.util.*;
 
 public class DeckOfCards {
 
-    static class Deck<T extends Card> {
+    static class Deck {
         ArrayList<Card> cards;
 
         Deck() {
@@ -81,7 +81,7 @@ public class DeckOfCards {
     }
 
     public static void main(String[] args) {
-        Deck<Card> deck = new Deck<>();
+        Deck deck = new Deck();
         deck.shuffle();
         System.out.println(deck.toString());
     }
