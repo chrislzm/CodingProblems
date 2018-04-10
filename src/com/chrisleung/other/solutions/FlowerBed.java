@@ -39,9 +39,11 @@ public class FlowerBed {
         }
         int maxFlowersCanPlant = 0;
         int firstZeroIndex = -1; // Index of the last zero we've found
-        for(int i=0; i<flowerBed.length; i++) { // 0, 1, 2, 3, 4, 5
-            if(flowerBed[i] == 0 && firstZeroIndex < 0) {
-                firstZeroIndex = i; // 1
+        for(int i=0; i<flowerBed.length; i++) {
+            if(flowerBed[i] == 0) {
+                if(firstZeroIndex < 0) {
+                    firstZeroIndex = i;
+                }
             } else { // We found a 1
                 // See how many zeros we have and increment number of flowers we can plant
                 if(firstZeroIndex == 0) { // Special case (leading zeros)
@@ -55,12 +57,12 @@ public class FlowerBed {
         }
         // There are trailing zeros
         if(firstZeroIndex < flowerBed.length && flowerBed[flowerBed.length-1] == 0) {
-            if(firstZeroIndex == -1) {
+            if(firstZeroIndex == 0) {
                 // We never encountered a 1 in the array
                 maxFlowersCanPlant = flowerBed.length % 2 == 0 ? flowerBed.length/2 : (flowerBed.length+1) / 2;
             } else {
                 int numTrailingZeros = flowerBed.length-firstZeroIndex;
-                maxFlowersCanPlant += flowerBed.length == 1 ? 1 : numTrailingZeros/2;
+                maxFlowersCanPlant += numTrailingZeros/2;
             }
         }
         return maxFlowersCanPlant >= numFlowersToAdd;
