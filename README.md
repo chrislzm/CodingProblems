@@ -1,6 +1,6 @@
 # Introduction
 
-This is an Eclipse Java project workspace for Leetcode.com problems. It includes reusable JUnit Test harnesses along with my sample solutions and test cases.
+This is an Eclipse Java project workspace for coding problems. It includes my solutions, JUnit tests and test cases.
 
 # Usage Notes
 
