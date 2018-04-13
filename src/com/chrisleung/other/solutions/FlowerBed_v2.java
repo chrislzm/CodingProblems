@@ -26,6 +26,9 @@ public class FlowerBed_v2 {
             } else { // We found a 1
                 if(foundZero) {
                     maxFlowersCanPlant += (i-firstZeroIndex-1)/2;
+                    if(maxFlowersCanPlant >= numFlowersToAdd) {
+                        return true;
+                    }
                 }
                 foundZero = false;
             }
