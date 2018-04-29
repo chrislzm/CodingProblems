@@ -19,7 +19,7 @@ public class AllCombinationsOfNSize {
             return;
         }
         
-        for(int i=startIndex; i< elements.length-(n-1); i++) {
+        for(int i=startIndex; i <= elements.length-n; i++) {
             current.add(elements[i]);
             allCombinationsSizeHelper(n-1,elements,i+1,current,result);
             current.remove(current.size()-1);
