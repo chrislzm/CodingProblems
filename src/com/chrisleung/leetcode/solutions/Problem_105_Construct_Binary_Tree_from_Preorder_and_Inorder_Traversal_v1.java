@@ -23,11 +23,9 @@ public class Problem_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Travers
         if(inorder.peek() != node.val) { // Next values are on the left side
             node.left = buildTreeHelper(preorder,inorder,ancestors);
         }
-        if(inorder.peek() == node.val) {
-            inorder.poll();
-            if(!inorder.isEmpty() && (!ancestors.contains(inorder.peek()))) { // Next values are on the right side
-                node.right = buildTreeHelper(preorder,inorder,ancestors);
-            }
+        inorder.poll(); // Must be the current node
+        if(!inorder.isEmpty() && (!ancestors.contains(inorder.peek()))) { // Next values are on the right side
+            node.right = buildTreeHelper(preorder,inorder,ancestors);
         }
         return node;
     }
