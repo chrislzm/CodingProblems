@@ -1,6 +1,7 @@
 package com.chrisleung.leetcode.solutions;
 
 public class Problem_050_Pow_x_n {
+
     public double myPow(double x, int n) {
         double ans = 1.0;
         if(n < 0) {
@@ -14,12 +15,14 @@ public class Problem_050_Pow_x_n {
         }
 
         double pow = x;
-        for(int i=n; i>0; i /=2) {
-            if(i%2 == 1) {
+        
+        for(int i=n; i>0; i >>= 1) {
+            if((i&1) == 1) {
                 ans *= pow;
             }
             pow = pow * pow;
         }
         return ans;
     }
+    
 }
