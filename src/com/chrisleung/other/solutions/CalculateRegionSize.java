@@ -1,5 +1,6 @@
 package com.chrisleung.other.solutions;
 
+//Amazon technical phone screen question #1
 public class CalculateRegionSize {
   //=========================
   int[][] matrix = {{1,0,1,0},
