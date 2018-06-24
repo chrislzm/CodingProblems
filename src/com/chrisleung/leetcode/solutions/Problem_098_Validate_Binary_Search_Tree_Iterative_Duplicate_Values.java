@@ -20,7 +20,7 @@ public class Problem_098_Validate_Binary_Search_Tree_Iterative_Duplicate_Values 
                 root = root.left;
             }
             root = stack.pop();
-            if(prev != null && ((!onRightSideOfPrev && prev.val > root.val) || (onRightSideOfPrev && prev.val >= root.val))) {
+            if(prev != null && (prev.val > root.val || (onRightSideOfPrev && prev.val == root.val))) {
                 return false;
             }
             prev = root;
