@@ -25,11 +25,7 @@ public class Problem_098_Validate_Binary_Search_Tree_Iterative_Duplicate_Values 
             }
             prev = root;
             root = root.right;
-            if(root != null) {
-                onRightSideOfPrev = true;
-            } else {
-                onRightSideOfPrev = false;
-            }
+            onRightSideOfPrev = root == null ? false : true;
         }
         return true;
     }
