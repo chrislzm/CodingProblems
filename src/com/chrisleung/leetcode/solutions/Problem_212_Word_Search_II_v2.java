@@ -49,11 +49,11 @@ public class Problem_212_Word_Search_II_v2 {
         if(i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] > 'z') return;
         TrieNode child = n.next[board[i][j]-'a'];
         if(child != null) {
+            board[i][j] ^= 256;
             for(int[] direction : directions) {
-                board[i][j] ^= 256;
                 findWords(board,i+direction[0],j+direction[1],child,found);
-                board[i][j] ^= 256;
             }
+            board[i][j] ^= 256;
         }
     }
 
