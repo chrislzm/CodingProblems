@@ -4,36 +4,35 @@ import java.util.Scanner;
 
 public class TicTacToe {
     char[] board;
-    static final int BOARD_SIZE = 9;
     static final char COMPUTER_TOKEN = 'O';
     static final char PLAYER_TOKEN = 'X';
+
     static final char EMPTY_TOKEN = '-';
+    static final int BOARD_LENGTH = 3;
+    static final int BOARD_AREA = BOARD_LENGTH*BOARD_LENGTH;
 
     TicTacToe() {
-        board = new char[BOARD_SIZE];
+        board = new char[BOARD_AREA];
         Arrays.fill(board, EMPTY_TOKEN);
+    }
+
+    void printBoard() {
+        for(int i=0; i<BOARD_LENGTH; i++) {
+            for(int j=0; j<BOARD_LENGTH; j++) {
+                System.out.print(board[j+i*BOARD_LENGTH]);
+                if(j < BOARD_LENGTH-1)
+                    System.out.print('|');
+            }
+            System.out.print('\n');
+        }
     }
 
     void addToken(int spot, char token) {
         board[spot] = token;
     }
 
-    void printBoard() {
-        for(int i=0; i<BOARD_SIZE; i++) {
-            if(i != 0) {
-                if(i%3 == 0) {
-                    System.out.print('\n');
-                } else {
-                    System.out.print('|');
-                }
-            }
-            System.out.print(board[i]);
-        }
-        System.out.print('\n');
-    }
-
     boolean boardIsFull() {
-        for(int i=0; i<BOARD_SIZE; i++) {
+        for(int i=0; i<BOARD_AREA; i++) {
             if(board[i] == EMPTY_TOKEN) 
                 return false;
         }
@@ -42,7 +41,7 @@ public class TicTacToe {
 
     void computerMakeMove() throws Exception {
         boolean madeMove = false;
-        for(int i=0; i<BOARD_SIZE; i++) {
+        for(int i=0; i<BOARD_AREA; i++) {
             if(board[i] == EMPTY_TOKEN) { 
                 addToken(i,COMPUTER_TOKEN);
                 madeMove = true;
