@@ -105,13 +105,9 @@ public class SubsequenceMatchSums {
     public static int getValueInCents(String s) {
         if(s.contains(".")) {
             int result = Integer.parseInt(s.replace(".", ""));
-            if(s.contains(".")) {
-                return result;
-            }
-            return result * 100;
-        } else {
-            return Integer.parseInt(s) * 100;
+            return result;
         }
+        return Integer.parseInt(s) * 100;
     }
     
     public static void main(String[] args) {
