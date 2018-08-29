@@ -10,9 +10,37 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
- * A Versioned Key Value Store
- * @author Chris Leung
- *
+    A Versioned Key Value Store
+    @author Chris Leung
+
+    Sample Input:
+
+PUT key1 5
+PUT key2 6
+GET key1
+GET key1 1
+GET key2 2
+PUT key1 7
+GET key1 1
+GET key1 2
+GET key1 3
+GET key4
+GET key1 4
+
+    Sample Output:
+    
+PUT(#1) key1 = 5
+PUT(#2) key2 = 6
+GET key1 = 5
+GET key1(#1) = 5
+GET key2(#2) = 6
+PUT(#3) key1 = 7
+GET key1(#1) = 5
+GET key1(#2) = 5
+GET key1(#3) = 7
+GET key4 = <NULL>
+GET key1(#4) = 7
+
  */
 public class VersionedKeyValueStore {
     
