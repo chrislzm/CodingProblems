@@ -8,37 +8,37 @@ package com.chrisleung.leetcode.solutions;
 public class Problem_215_Kth_Largest_Element_in_an_Array_v2 {
 
     public int findKthLargest(int[] nums, int k) {
-        int low = 0;
-        int high = nums.length-1;
-        int target = high-(k-1);
+        int loIndex = 0;
+        int hiIndex = nums.length-1;
+        int targetIndex = nums.length-k;
         while(true) {
-            int partitionIndex = partition(nums,low,high);
-            if(partitionIndex < target) {
-                low = partitionIndex+1;
-            } else if(partitionIndex > target) {
-                high = partitionIndex-1;
-            } else {
+            int partitionIndex = partition(nums,loIndex,hiIndex);
+            if(partitionIndex < targetIndex) {
+                loIndex = partitionIndex+1;
+            } else if(partitionIndex > targetIndex) {
+                hiIndex = partitionIndex-1;
+            } else { // partitionIndex == targetIndex
                 break;
             }
         }
-        return nums[target];
+        return nums[targetIndex];
     }
     
-    private int partition(int[] nums, int low, int high) {
-        int pivotIndex = low;
-        low++;
+    private int partition(int[] nums, int loIndex, int hiIndex) {
+        int pivotIndex = loIndex;
+        loIndex++;
         int pivot = nums[pivotIndex];
-        while(low <= high) {
-            if(nums[low] < pivot) {
-                low++;  
-            } else if(nums[high] >= pivot) {
-                high--;
+        while(loIndex <= hiIndex) {
+            if(nums[loIndex] < pivot) {
+                loIndex++;  
+            } else if(nums[hiIndex] >= pivot) {
+                hiIndex--;
             } else {
-                swap(nums,low,high);
+                swap(nums,loIndex,hiIndex);
             }                
         }
-        swap(nums,pivotIndex,high);
-        return high;
+        swap(nums,pivotIndex,hiIndex);
+        return hiIndex;
     }
     
     private void swap(int[] arr, int i, int j) {
