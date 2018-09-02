@@ -28,15 +28,17 @@ public class Problem_215_Kth_Largest_Element_in_an_Array_v3 {
     }
     
     /** 
-     * Quicksort partition method
-     * Handles two edge cases:
-     * 1) loIndex == hiIndex
-     * 2) loIndex = hiIndex-1, and pivotValue < hiIndex (in this case, hiIndex will be decremented past loIndex to the pivotIndex) 
+     * Quicksort partition method - handles two edge cases:
+     * 1) loIndex == hiIndex (bypasses the while-loop entirely and just returns the same index)
+     * 2) loIndex = hiIndex-1
+     *   2a) pivotValue < nums[hiIndex] (in this case, hiIndex will be decremented below loIndex, then the while-loop breaks)
+     *   2b) pivotValue > nums[hiIndex] (in this case, loIndex will be incremented above hiIndex, then the while-loop breaks) 
      */
     private int partition(int[] nums, int loIndex, int hiIndex) {
         int pivotValue = nums[loIndex];
         int pivotIndex = loIndex;
         loIndex++;
+        // Make all elements to the right of hiIndex greater than the pivotValue
         while(loIndex <= hiIndex) { 
             if(nums[loIndex] < pivotValue) {
                 loIndex++;  
