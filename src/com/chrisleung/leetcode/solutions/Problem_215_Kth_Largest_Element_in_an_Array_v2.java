@@ -24,20 +24,27 @@ public class Problem_215_Kth_Largest_Element_in_an_Array_v2 {
         return nums[targetIndex];
     }
     
+    /** 
+     * Quicksort partition method
+     * Handles two edge cases:
+     * 1) loIndex == hiIndex
+     * 2) loIndex = hiIndex-1, and pivotValue < hiIndex (in this case, hiIndex will be decremented past loIndex to the pivotIndex) 
+     */
     private int partition(int[] nums, int loIndex, int hiIndex) {
+        int pivotValue = nums[loIndex];
         int pivotIndex = loIndex;
         loIndex++;
-        int pivot = nums[pivotIndex];
-        while(loIndex <= hiIndex) {
-            if(nums[loIndex] < pivot) {
+        while(loIndex <= hiIndex) { 
+            if(nums[loIndex] < pivotValue) {
                 loIndex++;  
-            } else if(nums[hiIndex] >= pivot) {
+            } else if(nums[hiIndex] >= pivotValue) {
                 hiIndex--;
             } else {
                 swap(nums,loIndex,hiIndex);
             }                
         }
-        swap(nums,pivotIndex,hiIndex);
+        // All elements to the right of hiIndex are now greater than pivotValue
+        swap(nums,pivotIndex,hiIndex); 
         return hiIndex;
     }
     
