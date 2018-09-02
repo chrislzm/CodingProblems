@@ -1,11 +1,13 @@
 package com.chrisleung.other.solutions;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class QuickSort {
     
     static public void quicksort(int[] nums) {
         if(nums == null || nums.length == 0) return;
+        shuffle(nums);
         quicksort(nums,0,nums.length-1);
     }
         
@@ -37,6 +39,15 @@ public class QuickSort {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
+    }
+    
+    static private void shuffle(int[] arr) {
+        Random r = new Random();
+        int range = arr.length;
+        for(int i=0; i<range; i++) {
+            int swapIndex = r.nextInt(range);
+            swap(arr,i,swapIndex);
+        }
     }
     
     public static void main(String[] args) {
