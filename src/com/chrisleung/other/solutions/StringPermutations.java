@@ -12,6 +12,7 @@ public class StringPermutations {
     
     public List<String> permute(String s) {
         List<String> result = new ArrayList<>();
+        if(s == null || s.isEmpty()) return result;
         char[] str = s.toCharArray();
         permute(str, 0, new char[str.length], result);
         return result;
@@ -31,6 +32,26 @@ public class StringPermutations {
         }
     }
     
+    public void printPermutations(String s) {
+        if(s == null || s.isEmpty()) return;
+        char[] str = s.toCharArray();
+        printPermutations(str, 0, new char[str.length]);
+    }
+    
+    private void printPermutations(char[] str, int index, char[] permutation) {
+        if(index == str.length) {
+            System.out.println(new String(permutation));
+            return;
+        }
+        for(int i=index; i<str.length; i++) {
+            char c = str[i];
+            permutation[index] = c;
+            swap(str,index,i);
+            printPermutations(str,index+1,permutation);
+            swap(str,index,i);
+        }
+    }
+    
     private void swap(char[] arr, int i, int j) {
         char tmp = arr[i];
         arr[i] = arr[j];
@@ -40,5 +61,6 @@ public class StringPermutations {
     public static void main(String[] args) {
         StringPermutations sp = new StringPermutations();
         System.out.println(sp.permute("abcd"));
+        sp.printPermutations("abc");
     }
 }
